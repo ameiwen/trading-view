@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.springframework.org/schema/mvc">
+<head>
+    <meta charset="UTF-8">
+    <title>Trading view</title>
+</head>
+<body>
+<div id="tv_chart_container" style="height: 800px"></div>
+</body>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script th:src="@{/charting_library/charting_library.min.js}"></script>
+<script th:src="@{/datafeeds/socket/updater.js}"></script>
+<script th:src="@{/datafeeds/socket/datafees.js}"></script>
+<script th:src="@{/datafeeds/socket/socket.js}"></script>
+<script th:src="@{/datafeeds/socket/wsconfig.js}"></script>
+<script>
+    var WsConfig = new WsConfig('btcusdt');
+    WsConfig.init();
+    //修改商品
+    // $("#symbols").on("change",function () {
+    //     var symbol = this.value;
+    //     WsConfig.symbol = symbol;
+    //     WsConfig.widgets.chart().setSymbol($("#symbols option:selected").val());
+    //     //有个BUG,切换商品是取消订阅上次的商品更新
+    //     // WsConfig.unSubscribe(WsConfig.interval);
+    // });
+</script>
+</html>
