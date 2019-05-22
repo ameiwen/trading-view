@@ -46,7 +46,7 @@ public class ServerHandler extends AbsServerHandler implements IWsMsgHandler {
 				Map<String, Object> heart = new HashMap<>();
 				heart.put("pong", new Date().getTime());
 				Tio.send(channelContext, WsResultUtil.buildResponseByJson(heart));
-				logger.info("heat:" + text);
+				logger.info("heart beat:" + text);
 				return null;
 			}
 			ServerProcessor server = handlerMap.get(channelReq.getChannel());
