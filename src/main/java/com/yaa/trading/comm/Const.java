@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.yaa.trading.comm;
 
 import java.util.Arrays;

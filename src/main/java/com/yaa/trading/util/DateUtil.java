@@ -43,8 +43,8 @@ public class DateUtil {
 
     public static BigDecimal[] getData() {
         BigDecimal[] data = new BigDecimal[5];
-        double maxprice = 0.0;
-        double minprice = 0.0;
+        double high = 0.0;
+        double low = 0.0;
         double openprice = 0.0;
         double closeprice = 0.0;
         double volumequantity = 0.0;
@@ -52,28 +52,28 @@ public class DateUtil {
         int min = 2200 - new Random().nextInt(10);
         int volume = 20 - new Random().nextInt(10);
         double degree = new BigDecimal(new Random().nextFloat()).doubleValue();
-        maxprice = max + degree ;
+        high = max + degree ;
         degree = new BigDecimal(new Random().nextFloat()).doubleValue();
-        minprice = min - degree ;
+        low = min - degree ;
         if(max-min <= 0){
             return null;
         }
         int open = new Random().nextInt(max - min) + min;
         degree = new BigDecimal(new Random().nextFloat()).doubleValue();
         openprice = open + degree;
-        if(openprice>maxprice)
-            openprice = maxprice;
+        if(openprice>high)
+            openprice = high;
         int close = new Random().nextInt(max - min) + min;
         degree = new BigDecimal(new Random().nextFloat()).doubleValue();
         closeprice = close + degree ;
-        if(closeprice<minprice)
-            closeprice = minprice;
+        if(closeprice<low)
+            closeprice = low;
 
         degree = new BigDecimal(new Random().nextFloat()).doubleValue();
         volumequantity = volume + degree ;
 
-        data[0] = new BigDecimal(maxprice).setScale(2,BigDecimal.ROUND_DOWN);
-        data[1] = new BigDecimal(minprice).setScale(2,BigDecimal.ROUND_DOWN);
+        data[0] = new BigDecimal(high).setScale(2,BigDecimal.ROUND_DOWN);
+        data[1] = new BigDecimal(low).setScale(2,BigDecimal.ROUND_DOWN);
         data[2] = new BigDecimal(openprice).setScale(2,BigDecimal.ROUND_DOWN);
         data[3] = new BigDecimal(closeprice).setScale(2,BigDecimal.ROUND_DOWN);
         data[4] = new BigDecimal(volumequantity).setScale(4,BigDecimal.ROUND_DOWN);
